@@ -1,0 +1,17 @@
+<div>
+  <form action="" class="myForm" name="myForm" [formGroup]="singInForm"  (ngSubmit)="onSubmit()">
+    <div class="input-container" >
+      <i class="fa fa-envelope icon"></i>
+      <input type="email" placeholder="Username" name="name" class="input-field" formControlName="name" required>
+    </div>
+    <div class="input-container">
+      <i class="fa fa-key icon"></i>
+      <input type="password" placeholder="Password" name="password" class="input-field" formControlName="pwd" required>
+    </div>
+    <div><input type="submit" class="bttn"></div>
+  </form>
+  <div class="link">
+    <button class="bttn">Sign Up</button>
+  </div>
+
+</div>
