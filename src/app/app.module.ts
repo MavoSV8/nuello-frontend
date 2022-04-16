@@ -11,6 +11,7 @@ import {AppRoutingModule} from "./app-routing/app-routing.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
 import { ModalComponent } from './modal/modal.component';
+import { SignoutWindowComponent } from './signout-window/signout-window.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ModalComponent } from './modal/modal.component';
     TableListerComponent,
     SigninWindowComponent,
     ModalComponent,
+    SignoutWindowComponent,
   ],
   imports: [
     BrowserModule,
