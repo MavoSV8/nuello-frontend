@@ -12,6 +12,6 @@ export class SignoutService {
   constructor(private http: HttpClient) { }
 
   logout() : Observable<OpResult> {
-    return this.http.get<OpResult>(this.flaskSignOutEP, {params: { operation : 'singout'}});
+    return this.http.post<OpResult>(this.flaskSignOutEP, {params: { operation : 'singout'}});
   }
 }

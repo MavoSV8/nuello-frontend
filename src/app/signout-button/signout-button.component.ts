@@ -12,13 +12,13 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class SignoutButtonComponent implements OnInit {
 
-  constructor(public signoutService: SignoutService, public router : Router
-    ,private dialog : MatDialog) { }
+  constructor(public signoutService: SignoutService, public router : Router ,private dialog : MatDialog) { }
 
   ngOnInit(): void {
   }
 
   logout(): void{
+    console.log("button works but not logout")
     this.signoutService.logout().subscribe(result => {
       if(result.result == "success"){
         this.router.navigateByUrl("/");
