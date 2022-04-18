@@ -22,6 +22,7 @@ export class SignoutButtonComponent implements OnInit {
     this.signoutService.logout().subscribe(result => {
       if(result.result == "success"){
         this.router.navigateByUrl("/");
+        console.log("button works");
       }
     });
   }
