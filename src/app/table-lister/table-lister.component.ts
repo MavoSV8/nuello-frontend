@@ -3,6 +3,7 @@ import { Table } from '../table';
 import {DbRequestService} from "../message-service/db-request.service";
 import {Observable} from "rxjs";
 import {HttpErrorResponse} from "@angular/common/http";
+import {SignoutButtonComponent} from "../signout-button/signout-button.component";
 
 @Component({
   selector: 'app-table-lister',

@@ -12,7 +12,7 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class SignoutButtonComponent implements OnInit {
 
-  constructor(private signoutService: SignoutService, public router : Router
+  constructor(public signoutService: SignoutService, public router : Router
     ,private dialog : MatDialog) { }
 
   ngOnInit(): void {
