@@ -7,7 +7,6 @@ import {SignoutButtonComponent} from "../signout-button/signout-button.component
 
 const routes: Routes = [
   { path: '', component: SigninWindowComponent },
-  { path: 'main', component: SignoutButtonComponent },
   { path: 'main', component: TableListerComponent, canActivate: [AppGuard] }
 ];
 
