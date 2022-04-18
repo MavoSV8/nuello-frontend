@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {OpResult} from "../op-result";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignoutService {
 
-  constructor() { }
+  private flaskSignOutEP = "https://nuello-back.herokuapp.com/signout";
+  constructor(private http: HttpClient) { }
+
+  logout() : Observable<OpResult> {
+    return this.http.get<OpResult>(this.flaskSignOutEP, {params: { operation : 'singout'}});
+  }
 }
