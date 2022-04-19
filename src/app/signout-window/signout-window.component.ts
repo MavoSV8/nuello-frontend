@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signout-window',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignoutWindowComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router : Router) { }
 
   ngOnInit(): void {
+    setTimeout(() =>
+      {
+        this.router.navigateByUrl('/'
+        );
+      },
+      5000);
   }
 
 }

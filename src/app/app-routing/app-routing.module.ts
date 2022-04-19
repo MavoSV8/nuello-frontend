@@ -4,9 +4,11 @@ import {SigninWindowComponent} from "../signin-window/signin-window.component";
 import {AppGuard} from "../app-guard/app.guard";
 import {TableListerComponent} from "../table-lister/table-lister.component";
 import {SignoutButtonComponent} from "../signout-button/signout-button.component";
+import {SignoutWindowComponent} from "../signout-window/signout-window.component";
 
 const routes: Routes = [
   { path: '', component: SigninWindowComponent },
+  { path: 'signedout', component: SignoutWindowComponent },
   { path: 'main', component: TableListerComponent, canActivate: [AppGuard] }
 ];
 
