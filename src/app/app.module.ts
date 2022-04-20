@@ -11,6 +11,9 @@ import {AppRoutingModule} from "./app-routing/app-routing.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
 import { ModalComponent } from './modal/modal.component';
+import { SignoutWindowComponent } from './signout-window/signout-window.component';
+import { SignoutButtonComponent } from './signout-button/signout-button.component';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -18,17 +21,20 @@ import { ModalComponent } from './modal/modal.component';
     TableListerComponent,
     SigninWindowComponent,
     ModalComponent,
+    SignoutWindowComponent,
+    SignoutButtonComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    RouterModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatDialogModule
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        RouterModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatDialogModule,
+        MatButtonModule
+    ],
   providers: [],
 
   bootstrap: [AppComponent]
