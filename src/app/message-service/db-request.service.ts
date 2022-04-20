@@ -7,10 +7,6 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class DbRequestService {
-  table: Table = {
-    id: 1,
-    name: "MyTable1"
-  };
 
   private flaskHttp = "https://nuello-back.herokuapp.com/tables"
 

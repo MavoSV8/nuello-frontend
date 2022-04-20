@@ -13,12 +13,13 @@ import {Router} from "@angular/router";
   styleUrls: ['./table-lister.component.css']
 })
 export class TableListerComponent implements OnInit {
-  tables: Table[] =  [{id: 0, name : "Null table"}];
+  tables: Table[] =  [];
 
   constructor(private dbRequester : DbRequestService, public signoutService: SignoutService, public router : Router ) {
   }
 
   ngOnInit(): void {
+    this.getTables();
   }
 
   logout() : void {

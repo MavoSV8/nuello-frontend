@@ -1,4 +1,5 @@
 export interface Table {
   id: number,
-  name: string
+  name: string,
+  desc: string
 }
