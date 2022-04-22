@@ -13,30 +13,41 @@ import {Router} from "@angular/router";
   styleUrls: ['./table-lister.component.css']
 })
 export class TableListerComponent implements OnInit {
-  tables: Table[] =  [];
+  tables: Table[] = [];
+  table: Table[] = []
 
-  constructor(private dbRequester : DbRequestService, public signoutService: SignoutService, public router : Router ) {
+  constructor(private dbRequester: DbRequestService, public signoutService: SignoutService, public router: Router) {
   }
 
   ngOnInit(): void {
     this.getTables();
   }
 
-  logout() : void {
+  logout(): void {
     console.log("button works but not logout")
     this.signoutService.logout().subscribe(result => {
-      if(result.result == "success"){
+      if (result.result == "success") {
         this.router.navigateByUrl("/signedout");
         console.log("button works");
       }
     });
   }
 
-  getTables() : void {
+  getTables(): void {
     this.dbRequester.getTables().subscribe(tables => {
       console.log(tables)
-      this.tables = <Table[]> tables;
-    },(err:HttpErrorResponse) => {
+      this.tables = <Table[]>tables;
+    }, (err: HttpErrorResponse) => {
+      console.log(err)
+    });
+  }
+
+  getTable(tableName: string) {
+    // this._tableName = tableName;
+    this.dbRequester.getTable(tableName).subscribe(table => {
+      console.log(table)
+      this.table = <Table[]>table;
+    }, (err: HttpErrorResponse) => {
       console.log(err)
     });
   }
