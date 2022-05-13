@@ -23,7 +23,7 @@ export class TableListerComponent implements OnInit {
   }
 
   logout() : void {
-    console.log("button works but not logout")
+
     this.signoutService.logout().subscribe(result => {
       if(result.result == "success"){
         this.router.navigateByUrl("/signedout");
