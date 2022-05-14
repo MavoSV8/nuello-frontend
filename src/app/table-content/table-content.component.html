@@ -1,0 +1,9 @@
+<div class="card-element medium orange darken-1" id='content'>
+
+<!-- <div class="card-element medium orange darken-1" id="{{tableName + '-content'}}"><p> -->
+    {{ tableName }}
+      <div *ngFor="let element of table">
+        <div class="card-content white-text">{{element.id}} {{element.name}}<br>&emsp;{{element.desc}}</div>
+      </div>
+
+</div>

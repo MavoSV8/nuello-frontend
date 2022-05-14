@@ -16,4 +16,8 @@ export class DbRequestService {
   getTables() : Observable<Table[]> {
     return this.http.get<Table[]>(this.flaskHttp)
   }
+
+  getTable(name: string): Observable<Table[]> {
+    return this.http.get<Table[]>(this.flaskHttp.concat('/',name))
+  }
 }
