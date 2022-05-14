@@ -29,6 +29,7 @@ export class TableListerComponent implements OnInit {
     this.getTables();
   }
 
+
   @ViewChild('appenHere', {static : false, read : ViewContainerRef}) target: ViewContainerRef;
   private componentRef: ComponentRef<any>;
   constructor(private dbRequester: DbRequestService, public signoutService: SignoutService, public router: Router,private viewContainerRef: ViewContainerRef) {
@@ -37,6 +38,7 @@ export class TableListerComponent implements OnInit {
 
   logout(): void {
     console.log("button works but not logout")
+}
     this.signoutService.logout().subscribe(result => {
       if (result.result == "success") {
         this.router.navigateByUrl("/signedout");

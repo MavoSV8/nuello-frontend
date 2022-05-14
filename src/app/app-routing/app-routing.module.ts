@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'main', component: TableListerComponent}
   // { path: 'main', component: TableListerComponent, canActivate: [AppGuard] }
   // //disabled until session is implemented
+
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ import {OpResult} from "../op-result";
 export class SignoutService {
 
   private flaskSignOutEP = "https://nuello-back.herokuapp.com/signout";
+  //private flaskSignOutEP = "http://127.0.0.1:5000/signout";
   constructor(private http: HttpClient) { }
 
   logout() : Observable<OpResult> {

@@ -9,6 +9,7 @@ import {Observable} from "rxjs";
 export class DbRequestService {
 
   private flaskHttp = "https://nuello-back.herokuapp.com/tables"
+  //private flaskHttp = "http://127.0.0.1:5000/tables"
 
   constructor(private http: HttpClient) { }
 
