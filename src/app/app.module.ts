@@ -14,11 +14,13 @@ import { ModalComponent } from './modal/modal.component';
 import { SignoutWindowComponent } from './signout-window/signout-window.component';
 import { SignoutButtonComponent } from './signout-button/signout-button.component';
 import {MatButtonModule} from "@angular/material/button";
+import {TableContentComponent} from "./table-content/table-content.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     TableListerComponent,
+    TableContentComponent,
     SigninWindowComponent,
     ModalComponent,
     SignoutWindowComponent,
