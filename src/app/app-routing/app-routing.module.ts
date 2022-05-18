@@ -9,8 +9,8 @@ import {SignoutWindowComponent} from "../signout-window/signout-window.component
 const routes: Routes = [
   { path: '', component: SigninWindowComponent },
   { path: 'signedout', component: SignoutWindowComponent },
-  { path: 'main', component: TableListerComponent, canActivate: [AppGuard] }
-  //{ path: 'main', component: TableListerComponent }
+  //{ path: 'main', component: TableListerComponent, canActivate: [AppGuard] }
+  { path: 'main', component: TableListerComponent }
 ];
 
 @NgModule({

@@ -14,6 +14,7 @@ import { ModalComponent } from './modal/modal.component';
 import { SignoutWindowComponent } from './signout-window/signout-window.component';
 import { SignoutButtonComponent } from './signout-button/signout-button.component';
 import {MatButtonModule} from "@angular/material/button";
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import {MatButtonModule} from "@angular/material/button";
         MatDialogModule,
         MatButtonModule
     ],
-  providers: [],
+  providers: [CookieService],
 
   bootstrap: [AppComponent]
 })

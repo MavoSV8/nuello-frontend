@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {OpResult} from "../op-result";
+import {CookieService} from "ngx-cookie-service";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,6 @@ export class SignoutService {
   constructor(private http: HttpClient) { }
 
   logout() : Observable<OpResult> {
-    return this.http.post<OpResult>(this.flaskSignOutEP, {params: { operation : 'singout'}});
+    return this.http.post<OpResult>(this.flaskSignOutEP, {params: { operation : 'singout'}},{withCredentials:true});
   }
 }

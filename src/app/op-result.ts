@@ -1,4 +1,5 @@
 export interface OpResult{
   operation : string,
-  result : string
+  result : string,
+  value : []
 }
