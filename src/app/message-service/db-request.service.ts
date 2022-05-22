@@ -58,4 +58,8 @@ export class DbRequestService {
   patchCard(id: number, list_id: number): Observable<OpResult> {
     return this.http.patch<OpResult>(this.cardsHttp, {params: {id: id, list_id: list_id}})
   }
+
+  getTable(name: string): Observable<Table[]> {
+    return this.http.get<Table[]>(this.flaskHttp.concat('/',name))
+  }
 }

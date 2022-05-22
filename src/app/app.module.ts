@@ -16,10 +16,12 @@ import { SignoutButtonComponent } from './signout-button/signout-button.componen
 import {MatButtonModule} from "@angular/material/button";
 import {CookieService} from "ngx-cookie-service";
 
+
 @NgModule({
   declarations: [
     AppComponent,
     TableListerComponent,
+    TableContentComponent,
     SigninWindowComponent,
     ModalComponent,
     SignoutWindowComponent,
