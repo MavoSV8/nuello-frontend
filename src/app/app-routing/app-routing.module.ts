@@ -10,9 +10,8 @@ import {TableContentComponent} from "../table-content/table-content.component";
 const routes: Routes = [
   { path: '', component: SigninWindowComponent },
   { path: 'signedout', component: SignoutWindowComponent },
-  { path: 'main', component: TableListerComponent}
-  // { path: 'main', component: TableListerComponent, canActivate: [AppGuard] }
-  // //disabled until session is implemented
+  //{ path: 'main', component: TableListerComponent, canActivate: [AppGuard] }
+  { path: 'main', component: TableListerComponent }
 
 ];
 

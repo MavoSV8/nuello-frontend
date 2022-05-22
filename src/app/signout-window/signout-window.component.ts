@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-signout-window',
@@ -8,9 +9,10 @@ import {Router} from "@angular/router";
 })
 export class SignoutWindowComponent implements OnInit {
 
-  constructor(public router : Router) { }
+  constructor(public router : Router , private cookies: CookieService) { }
 
   ngOnInit(): void {
+
     setTimeout(() =>
       {
         this.router.navigateByUrl('/'
