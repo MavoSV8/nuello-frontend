@@ -10,11 +10,11 @@ import {OpResult} from "../op-result";
 export class DbRequestService {
 
   private tablesHttp = "https://nuello-back.herokuapp.com/tables"
-  //private tablesHttp = "http://127.0.0.1:5000/tables"
+  // private tablesHttp = "http://127.0.0.1:5000/tables"
   private listsHttp = "https://nuello-back.herokuapp.com/lists"
-  //private listsHttp = "http://127.0.0.1:5000/lists"
+  // private listsHttp = "http://127.0.0.1:5000/lists"
   private cardsHttp = "https://nuello-back.herokuapp.com/cards"
-  //private cardsHttp = "http://127.0.0.1:5000/cards"
+  // private cardsHttp = "http://127.0.0.1:5000/cards"
 
   constructor(private http: HttpClient) {
   }
@@ -59,7 +59,7 @@ export class DbRequestService {
     return this.http.patch<OpResult>(this.cardsHttp, {params: {id: id, list_id: list_id}})
   }
 
-  getTable(name: string): Observable<Table[]> {
-    return this.http.get<Table[]>(this.flaskHttp.concat('/',name))
-  }
+  // getTable(name: string): Observable<Table[]> {
+  //   return this.http.get<Table[]>(this.flaskHttp.concat('/',name))
+  // }
 }

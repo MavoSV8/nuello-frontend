@@ -21,7 +21,7 @@ import {CookieService} from "ngx-cookie-service";
   declarations: [
     AppComponent,
     TableListerComponent,
-    TableContentComponent,
+    // TableContentComponent,
     SigninWindowComponent,
     ModalComponent,
     SignoutWindowComponent,

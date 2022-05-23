@@ -33,10 +33,17 @@ export class SigninWindowComponent implements OnInit {
 
   onSubmit() {
     this.singinService.validateUser(this.singInForm.value.name, this.singInForm.value.pwd).subscribe(result => {
+      console.log(result)
       if(result.result == 'success')
       {
         this.authService.login();
-        this.router.navigateByUrl('/main');
+        this.router.navigateByUrl('/main').then(res => {
+          if ( !res ) {
+            console.log("routing failed");
+          } else {
+            console.log("routing accepted");
+          }
+        });
         console.log("OK");
       } else
       {
