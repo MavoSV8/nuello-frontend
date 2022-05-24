@@ -15,6 +15,7 @@ import { SignoutWindowComponent } from './signout-window/signout-window.componen
 import { SignoutButtonComponent } from './signout-button/signout-button.component';
 import {MatButtonModule} from "@angular/material/button";
 import {CookieService} from "ngx-cookie-service";
+import { TableContentComponent } from './table-content/table-content.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {CookieService} from "ngx-cookie-service";
     ModalComponent,
     SignoutWindowComponent,
     SignoutButtonComponent,
+    TableContentComponent,
   ],
     imports: [
         BrowserModule,

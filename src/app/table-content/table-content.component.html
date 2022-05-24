@@ -1,9 +1,24 @@
-<div class="card-element medium orange darken-1" id='content'>
+<div class="row">
+  <button class="btn orange small right" (click)="logout()">logout</button>
+</div>
 
-<!-- <div class="card-element medium orange darken-1" id="{{tableName + '-content'}}"><p> -->
-    {{ tableName }}
-      <div *ngFor="let element of table">
-        <div class="card-content white-text">{{element.id}} {{element.name}}<br>&emsp;{{element.desc}}</div>
+<div class="row">
+  <div class="container medium white-text orange center-align medium-font-size align-items-center" style="border-radius: 25px"><br>{{ tableData.tableName }}<br><br></div>
+</div>
+<div class="row align-items-center">
+  <div *ngFor="let list of tableData.lists">
+    <div class="container justify-content-center list orange center-align">
+      <div class="list-header align-items-center">
+        {{ list.listData.name }}
+      </div>
+      <div *ngFor="let card of list.cards">
+        <div class="container card-box align-items-center justify-content-center">
+          {{card.name}}
+        </div>
       </div>
 
+
+      </div>
+    </div>
 </div>
+

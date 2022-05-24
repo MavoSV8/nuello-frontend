@@ -23,12 +23,12 @@ export class DbRequestService {
     return this.http.get<OpResult>(this.tablesHttp,{withCredentials: true});
   }
 
-  getLists(): Observable<OpResult> {
-    return this.http.get<OpResult>(this.listsHttp);
+  getLists(tableId : number): Observable<OpResult> {
+    return this.http.get<OpResult>(this.listsHttp, { params : { table_id: tableId }, withCredentials : true});
   }
 
-  getCards(): Observable<OpResult> {
-    return this.http.get<OpResult>(this.cardsHttp);
+  getCards(listId : number): Observable<OpResult> {
+    return this.http.get<OpResult>(this.cardsHttp, { params : { list_id: listId }, withCredentials : true});
   }
 
   postTable(name: string, desc: string): Observable<OpResult> {

@@ -48,4 +48,9 @@ export class TableListerComponent implements OnInit {
       console.log(err)
     });
   }
+
+  showTable(id : number, name: string) : void {
+    // console.log(id);
+    this.router.navigate(['/table'], { queryParams : {tableId: id, tableName: name} });
+  }
 }
