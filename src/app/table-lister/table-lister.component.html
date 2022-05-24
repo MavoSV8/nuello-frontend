@@ -6,7 +6,7 @@
       <div class="col m3">
         <div class="card medium orange darken-1" id={{table.name}}>
           <div class="card-content white-text">
-            <span class="card-title">{{ table.name }}</span>
+            <span class="card-title ">{{ table.name }}</span>
             <p>{{ table.desc }}</p>
           </div>
           <div class="card-action white-text" >
@@ -14,7 +14,7 @@
 <!--             <button class ="white-text" (click)="getTable(table.name)">See the table!</button> -->
 <!--               <div *ngFor="let element of table">ssss</div> -->
 
-            <button class ="btn orange small right" >See the table!</button>
+            <button class ="btn orange small right" (click)="showTable(table.id, table.name)">See the table!</button>
 
           </div>
         </div>
