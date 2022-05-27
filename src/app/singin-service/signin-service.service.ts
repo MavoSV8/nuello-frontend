@@ -8,8 +8,8 @@ import {OpResult} from "../op-result";
   providedIn: 'root'
 })
 export class SigninServiceService {
-  //private flaskSignInEP = "https://nuello-back.herokuapp.com/signin"
-  private flaskSignInEP = "http://127.0.0.1:5000/signin"
+  private flaskSignInEP = "https://nuello-back.herokuapp.com/signin"
+  //private flaskSignInEP = "http://127.0.0.1:5000/signin"
   constructor(private http: HttpClient) {
 
   }
