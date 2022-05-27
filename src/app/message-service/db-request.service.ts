@@ -9,12 +9,12 @@ import {OpResult} from "../op-result";
 })
 export class DbRequestService {
 
-  private tablesHttp = "https://nuello-back.herokuapp.com/tables"
-  // private tablesHttp = "http://127.0.0.1:5000/tables"
-  private listsHttp = "https://nuello-back.herokuapp.com/lists"
-  // private listsHttp = "http://127.0.0.1:5000/lists"
-  private cardsHttp = "https://nuello-back.herokuapp.com/cards"
-  // private cardsHttp = "http://127.0.0.1:5000/cards"
+  //private tablesHttp = "https://nuello-back.herokuapp.com/tables"
+  private tablesHttp = "http://127.0.0.1:5000/tables"
+  //private listsHttp = "https://nuello-back.herokuapp.com/lists"
+  private listsHttp = "http://127.0.0.1:5000/lists"
+  //private cardsHttp = "https://nuello-back.herokuapp.com/cards"
+  private cardsHttp = "http://127.0.0.1:5000/cards"
 
   constructor(private http: HttpClient) {
   }
@@ -32,23 +32,23 @@ export class DbRequestService {
   }
 
   postTable(name: string, desc: string): Observable<OpResult> {
-    return this.http.post<OpResult>(this.tablesHttp, {params: {name: name, desc: desc}});
+    return this.http.post<OpResult>(this.tablesHttp, {name: name, desc: desc}, {withCredentials: true});
   }
 
   postList(name: string, table_id: number): Observable<OpResult> {
-    return this.http.post<OpResult>(this.listsHttp, {params: {name: name, table_id: table_id}});
+    return this.http.post<OpResult>(this.listsHttp, "", {withCredentials: true, params:{name:name,table_id:table_id}});
   }
 
   postCard(name: string, list_id: number, description: string, assigne: string): Observable<OpResult> {
-    return this.http.post<OpResult>(this.cardsHttp, {params: {name: name, description: description, assigne: assigne}});
+    return this.http.post<OpResult>(this.cardsHttp,"", {withCredentials: true, params: {name: name, list_id: list_id ,description: description, assigne: assigne}} );
   }
 
   deleteList(id: number, table_id: number): Observable<OpResult> {
-    return this.http.delete<OpResult>(this.listsHttp, {params: {id: id, table_id: table_id}})
+    return this.http.delete<OpResult>(this.listsHttp, {params: {id: id, table_id: table_id}, withCredentials: true})
   }
 
   deleteCard(id: number, list_id: number): Observable<OpResult> {
-    return this.http.delete<OpResult>(this.cardsHttp, {params: {id: id, list_id: list_id}})
+    return this.http.delete<OpResult>(this.cardsHttp, {params: {id: id, list_id: list_id}, withCredentials: true})
   }
 
   patchList(id: number, table_id: number): Observable<OpResult> {

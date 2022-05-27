@@ -1,24 +1,27 @@
 <div class="row">
   <button class="btn orange small right" (click)="logout()">logout</button>
+  <button class="btn deep-orange small left" (click)="getTables()">Go back</button>
 </div>
 
 <div class="row">
   <div class="container medium white-text orange center-align medium-font-size align-items-center" style="border-radius: 25px"><br>{{ tableData.tableName }}<br><br></div>
 </div>
 <div class="row">
-  <div *ngFor="let list of tableData.lists">
+  <div *ngFor="let list of tableData.lists ; let i = index;">
     <div class="container list orange center-align">
       <div class="list-header align-items-center">
         {{ list.listData.name }}
+        <button (click)="deleteList(i)">-</button>
       </div>
-      <div *ngFor="let card of list.cards">
+      <div *ngFor="let card of list.cards; let j = index">
         <div class="container card-box align-items-center justify-content-center">
           {{card.name}}
+          <button (click)="deleteCard(j,i)">-</button>
         </div>
       </div>
-
-
+      <button (click)="addCard(i)">+</button>
       </div>
     </div>
+  <button class="btn deep-orange small" (click)="addList()">+</button>
 </div>
 
