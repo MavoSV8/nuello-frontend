@@ -9,8 +9,8 @@ import {CookieService} from "ngx-cookie-service";
 })
 export class SignoutService {
 
-  //private flaskSignOutEP = "https://nuello-back.herokuapp.com/signout";
-  private flaskSignOutEP = "http://127.0.0.1:5000/signout";
+  private flaskSignOutEP = "https://nuello-back.herokuapp.com/signout";
+  //private flaskSignOutEP = "http://127.0.0.1:5000/signout";
   constructor(private http: HttpClient) { }
 
   logout() : Observable<OpResult> {
