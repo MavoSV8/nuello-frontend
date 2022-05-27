@@ -15,7 +15,9 @@ import { SignoutWindowComponent } from './signout-window/signout-window.componen
 import { SignoutButtonComponent } from './signout-button/signout-button.component';
 import {MatButtonModule} from "@angular/material/button";
 import {CookieService} from "ngx-cookie-service";
-import { TableContentComponent } from './table-content/table-content.component';
+import {AddCardComponent, TableContentComponent} from './table-content/table-content.component';
+import { AddListComponent } from './add-list/add-list.component';
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { TableContentComponent } from './table-content/table-content.component';
     SignoutWindowComponent,
     SignoutButtonComponent,
     TableContentComponent,
+    AddListComponent,
+    AddCardComponent
   ],
     imports: [
         BrowserModule,
@@ -38,7 +42,8 @@ import { TableContentComponent } from './table-content/table-content.component';
         AppRoutingModule,
         BrowserAnimationsModule,
         MatDialogModule,
-        MatButtonModule
+        MatButtonModule,
+        MatInputModule
     ],
   providers: [CookieService],
 
