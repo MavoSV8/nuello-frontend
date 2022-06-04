@@ -9,8 +9,10 @@
   float: left;
   margin-left: 20px;
   margin-right: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 100px;
 }
+
+
 
 .list-header{
   border-radius: 5px;
@@ -32,3 +34,5 @@
   margin-bottom: 5px;
   background: white;
 }
+
+.btn-sml { height: 2px; }
