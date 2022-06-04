@@ -3,6 +3,8 @@ import {Table} from "../table";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {OpResult} from "../op-result";
+import {Comment} from "../comment"
+import {StringOpResult} from "../string-op-result";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +17,10 @@ export class DbRequestService {
   // private listsHttp = "http://127.0.0.1:5000/lists"
   private cardsHttp = "https://nuello-back.herokuapp.com/cards"
   // private cardsHttp = "http://127.0.0.1:5000/cards"
+  private commentsHttp = "https://nuello-back.herokuapp.com/comments"
+  // private commentsHttp = "http://127.0.0.1:5000/comments"
+  private whoAmIHttp = "https://nuello-back.herokuapp.com/whoami"
+  // private whoAmIHttp = "http://127.0.0.1:5000/whoami"
 
   constructor(private http: HttpClient) {
   }
@@ -31,12 +37,24 @@ export class DbRequestService {
     return this.http.get<OpResult>(this.cardsHttp, { params : { list_id: listId }, withCredentials : true});
   }
 
+  getComments(cardId : number): Observable<OpResult> {
+    return this.http.get<OpResult>(this.commentsHttp, { params : { card_id: cardId }, withCredentials : true});
+  }
+
+  getWhoAmI(): Observable<StringOpResult> {
+    return this.http.get<StringOpResult>(this.whoAmIHttp, { params : { }, withCredentials : true});
+  }
+
   postTable(name: string, desc: string): Observable<OpResult> {
     return this.http.post<OpResult>(this.tablesHttp, {name: name, desc: desc}, {withCredentials: true});
   }
 
   postList(name: string, table_id: number): Observable<OpResult> {
     return this.http.post<OpResult>(this.listsHttp, "", {withCredentials: true, params:{name:name,table_id:table_id}});
+  }
+
+  postComment(content: string, author: string, cardId: number): Observable<OpResult> {
+    return this.http.post<OpResult>(this.commentsHttp, "", {withCredentials: true, params:{content : content, author: author, card_id: cardId }});
   }
 
   postCard(name: string, list_id: number, description: string, assigne: string): Observable<OpResult> {

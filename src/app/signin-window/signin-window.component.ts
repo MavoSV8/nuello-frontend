@@ -36,7 +36,7 @@ export class SigninWindowComponent implements OnInit {
       console.log(result)
       if(result.result == 'success')
       {
-        this.authService.login();
+        this.authService.login(this.singInForm.value.name);
         this.router.navigateByUrl('/main').then(res => {
           if ( !res ) {
             console.log("routing failed");

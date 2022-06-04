@@ -1,0 +1,47 @@
+<mat-dialog-content class="mat-typography">
+  <h1 class="card-title">
+    {{ this.card.name }}
+  </h1>
+  <hr/>
+  <div>
+    <h2>
+      Description:
+    </h2>
+    <p>
+    {{ this.card.description }}
+    </p>
+  </div>
+  <hr/>
+  <div>
+    <h2>
+      Assignee:
+    </h2>
+    <h3 class="bi bi-person">
+      {{ this.card.assigne}}
+    </h3>
+  </div>
+  <hr/>
+  <div>
+    <h2>
+      Comments:
+    </h2>
+  </div>
+    <div>
+      {{ this.errorMsg }}
+    </div>
+    <div *ngFor="let comment of this.comments">
+      <div>
+        {{ comment.content }}
+      </div>
+      <div>
+        <p class="fst-italic fs-6">commented by {{ comment.author }}<br></p>
+      </div>
+
+    </div>
+  <div>
+    <div class="input-group">
+      <input type="text" class="form-control"  [(ngModel)]="this.userComment" (keyup.enter)="this.sendComment()">
+    </div>
+    <hr/>
+  </div>
+</mat-dialog-content>

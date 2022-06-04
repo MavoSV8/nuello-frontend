@@ -16,7 +16,7 @@
       </div>
 
       <div *ngFor="let card of list.cards; let j = index">
-        <div class="container card-box d-flex center align-items-center justify-content-center" data-toggle="modal" data-target="#exampleModalCenter">
+        <div class="container card-box d-flex center align-items-center justify-content-center" (click)="openCard(i, j)">
           {{card.name}}
           <button class="btn orange btn-small right bi bi-x-circle" (click)="deleteCard(j,i)"></button>
           <button class="btn orange btn-small right bi bi-x-circle" (click)="deleteCard(j,i)"></button>

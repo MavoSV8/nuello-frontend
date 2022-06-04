@@ -18,6 +18,7 @@ import {CookieService} from "ngx-cookie-service";
 import {AddCardComponent, TableContentComponent} from './table-content/table-content.component';
 import { AddListComponent } from './add-list/add-list.component';
 import {MatInputModule} from "@angular/material/input";
+import { CardContentComponent } from './card-content/card-content.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {MatInputModule} from "@angular/material/input";
     SignoutButtonComponent,
     TableContentComponent,
     AddListComponent,
-    AddCardComponent
+    AddCardComponent,
+    CardContentComponent
   ],
     imports: [
         BrowserModule,

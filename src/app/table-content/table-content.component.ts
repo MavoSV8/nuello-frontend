@@ -10,6 +10,7 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog
 import {Card} from "../card";
 import {ListData} from "../list-data";
 import {AddListComponent} from "../add-list/add-list.component";
+import {CardContentComponent} from "../card-content/card-content.component";
 export interface tempCard{
   name: string;
   description: string;
@@ -194,10 +195,15 @@ export class TableContentComponent implements OnInit {
 
 
     })
-
   }
 
-
+  openCard(listId: number, cardId: number): void {
+    const dialog = this.dialogCard.open(CardContentComponent,{
+      width: '600px',
+      height: '700px',
+      data: this.tableData.lists[listId].cards[cardId]
+    });
+  }
 }
 
 @Component({
