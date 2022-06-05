@@ -4,52 +4,39 @@
 </div>
 
 <div class="row">
-  <div class="container medium white-text orange center-align medium-font-size align-items-center" style="border-radius: 25px"><br>{{ tableData.tableName }}<br><br></div>
+  <div class="container medium white-text orange center-align medium-font-size align-items-center"
+       style="border-radius: 25px"><br>{{ tableData.tableName }}<br><br></div>
 </div>
 <div class="row">
   <div *ngFor="let list of tableData.lists ; let i = index;">
-    <div class="container list orange justify-content-center">
-      <div class="list-header d-flex center">
-        {{ list.listData.name }}
-          <button type="button" class="btn orange small right bi bi-x-circle" (click)="deleteList(i)">
+    <div>
+      <div class="container list orange justify-content-center">
+        <div class="list-header d-flex center">
+          {{ list.listData.name }}
+          <button type="button" class="btn orange small right bi bi-x-circle" style="transform:scale(0.9)"
+                  (click)="deleteList(i)">
+
           </button>
-      </div>
-
-      <div *ngFor="let card of list.cards; let j = index">
-        <div class="container card-box d-flex center align-items-center justify-content-center" (click)="openCard(i, j)">
-          {{card.name}}
-          <button class="btn orange btn-small right bi bi-x-circle" (click)="deleteCard(j,i)"></button>
-          <button class="btn orange btn-small right bi bi-x-circle" (click)="deleteCard(j,i)"></button>
-
         </div>
-      </div>
-      <div class="container card-box ">
+
+        <div *ngFor="let card of list.cards; let j = index">
+          <div class="container card-box d-flex center align-items-center justify-content-center "
+               (click)="openCard(i, j)">
+            {{card.name}}
+            <!--          <button class="btn orange btn-small right bi bi-x-circle" (click)="deleteCard($event, j,i)"></button>-->
+            <i type="button" class="right gray bi-x-lg m-lg-5" (click)="deleteCard($event, j,i)"></i>
+
+          </div>
+        </div>
         <div class="d-flex center align-items-center justify-content-center">
-          <button type="button" class="btn orange small bi bi-plus-circle " (click)="addCard(i)">Add card</button>
+          <button type="button" class="btn orange small bi bi-plus-circle " style="transform: scale(0.85)"
+                  (click)="addCard(i)">Add card
+          </button>
         </div>
       </div>
-
     </div>
   </div>
   <button type="button" class="btn deep-orange small bi bi-plus-circle " (click)="addList()">Add list</button>
 </div>
 
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+

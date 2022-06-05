@@ -1,5 +1,5 @@
 <mat-dialog-content class="mat-typography">
-  <h1 class="card-title">
+  <h1 class="card-title" style="background-color: antiquewhite">
     {{ this.card.name }}
   </h1>
   <hr/>
@@ -23,25 +23,50 @@
   <hr/>
   <div>
     <h2>
+      Tasks:
+    </h2>
+      <div>
+        <div *ngFor="let task of this.tasks; let i = index">
+            <div class="form-check-inline d-flex justify-content-center overflow-auto">
+              <button *ngIf="task.status === this.ON_HOLD" type="button" class="btn left btn-small deep-orange" style="width: 120px" (click)="this.changeStatus(i)">ON HOLD</button>
+              <button *ngIf="task.status === this.IN_PROGRESS" type="button" class="btn left btn-small blue" style="width: 120px" (click)="this.changeStatus(i)">IN PROGRESS</button>
+              <button *ngIf="task.status === this.DONE" type="button" class="btn left btn-small light-green" style="width: 120px" (click)="this.changeStatus(i)">DONE</button>
+              &nbsp;&nbsp;{{task.content}}
+              <i type="button" class="right gray bi-x-lg" style="width: 30px" (click)="this.deleteTask(i)"></i><br><br>
+
+            </div>
+        </div>
+        <button *ngIf="!this.addingTask" type="button" class="btn orange btn-small bi bi-plus-circle " style="width: 120px" (click)="showTaskAddingField()">
+        </button>
+        <div *ngIf="this.addingTask" class="input-group">
+          <input type="text" class="form-control"  [(ngModel)]="this.userTaskInput" (keyup.enter)="this.addTask()">
+        </div>
+
+      </div>
+  </div>
+  <hr/>
+  <div>
+    <h2>
       Comments:
     </h2>
   </div>
     <div>
       {{ this.errorMsg }}
     </div>
-    <div *ngFor="let comment of this.comments">
+    <div *ngFor="let comment of this.comments; let i = index">
       <div>
         {{ comment.content }}
+        <i type="button" class="right gray bi-x-lg" style="width: 30px" (click)="this.deleteComment(i)"></i><br><br>
       </div>
       <div>
-        <p class="fst-italic fs-6">commented by {{ comment.author }}<br></p>
+        <p class="fst-italic fs-6" style="font-style: italic; font-size: 10px">commented by {{ comment.author }}<br></p>
       </div>
 
     </div>
   <div>
     <div class="input-group">
-      <input type="text" class="form-control"  [(ngModel)]="this.userComment" (keyup.enter)="this.sendComment()">
+      <input type="text" class="form-control" placeholder="enter comment..."  [(ngModel)]="this.userComment" (keyup.enter)="this.sendComment()">
     </div>
-    <hr/>
   </div>
+
 </mat-dialog-content>

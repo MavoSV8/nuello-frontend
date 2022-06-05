@@ -21,6 +21,8 @@ export class DbRequestService {
   // private commentsHttp = "http://127.0.0.1:5000/comments"
   private whoAmIHttp = "https://nuello-back.herokuapp.com/whoami"
   // private whoAmIHttp = "http://127.0.0.1:5000/whoami"
+  private tasksHttp = "https://nuello-back.herokuapp.com/tasks"
+  // private tasksHttp = "http://127.0.0.1:5000/tasks"
 
   constructor(private http: HttpClient) {
   }
@@ -41,6 +43,9 @@ export class DbRequestService {
     return this.http.get<OpResult>(this.commentsHttp, { params : { card_id: cardId }, withCredentials : true});
   }
 
+  getTasks(cardId : number): Observable<OpResult> {
+    return this.http.get<OpResult>(this.tasksHttp, { params : { card_id: cardId }, withCredentials : true});
+  }
   getWhoAmI(): Observable<StringOpResult> {
     return this.http.get<StringOpResult>(this.whoAmIHttp, { params : { }, withCredentials : true});
   }
@@ -51,6 +56,10 @@ export class DbRequestService {
 
   postList(name: string, table_id: number): Observable<OpResult> {
     return this.http.post<OpResult>(this.listsHttp, "", {withCredentials: true, params:{name:name,table_id:table_id}});
+  }
+
+  postTask(content: string, cardId: number, status: string): Observable<OpResult> {
+    return this.http.post<OpResult>(this.tasksHttp, "", {withCredentials: true, params:{content:content,card_id:cardId, status: status}});
   }
 
   postComment(content: string, author: string, cardId: number): Observable<OpResult> {
@@ -69,6 +78,14 @@ export class DbRequestService {
     return this.http.delete<OpResult>(this.cardsHttp, {params: {id: id, list_id: list_id}, withCredentials: true})
   }
 
+  deleteTask(id: number): Observable<OpResult> {
+    return this.http.delete<OpResult>(this.tasksHttp, {params: {id: id }, withCredentials: true})
+  }
+
+  deleteComment(id: number): Observable<OpResult> {
+    return this.http.delete<OpResult>(this.commentsHttp, {params: {id: id }, withCredentials: true})
+  }
+
   patchList(id: number, table_id: number): Observable<OpResult> {
     return this.http.patch<OpResult>(this.listsHttp, {params: {id: id, table_id: table_id}})
   }
@@ -77,6 +94,9 @@ export class DbRequestService {
     return this.http.patch<OpResult>(this.cardsHttp, {params: {id: id, list_id: list_id}})
   }
 
+  patchTask(id: number, cardId: number, content: string, status: string): Observable<OpResult> {
+    return this.http.patch<OpResult>(this.tasksHttp, "", {withCredentials: true, params:{id : id, card_id: cardId, content: content, status: status}});
+  }
   // getTable(name: string): Observable<Table[]> {
   //   return this.http.get<Table[]>(this.flaskHttp.concat('/',name))
   // }

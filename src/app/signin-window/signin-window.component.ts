@@ -59,6 +59,7 @@ export class SigninWindowComponent implements OnInit {
       console.log("Invalid request");
     });
   }
+
 }
 function DialogBodyComponent(DialogBodyComponent: any, dialogConfig: MatDialogConfig<any>) {
     throw new Error('Function not implemented.');

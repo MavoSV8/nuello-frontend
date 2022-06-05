@@ -38,6 +38,7 @@ export class TableContentComponent implements OnInit {
   name: string;
   description: string;
   counter = 40;
+  userName : string;
 
   constructor(private dbRequester : DbRequestService, private route: ActivatedRoute, private router: Router, public signoutService: SignoutService, public dialogCard: MatDialog) {
   }
@@ -53,6 +54,17 @@ export class TableContentComponent implements OnInit {
     });
 
     // load table data
+
+    this.dbRequester.getWhoAmI().subscribe(whoami => {
+      if (whoami.result == "failure") {
+        this.userName = ""
+      } else {
+        console.log("Step 2:" + whoami.value);
+        this.userName = whoami.value;
+      }
+    }, (err: HttpErrorResponse) => {
+      console.log(err)
+    });
 
     console.log()
   }
@@ -128,7 +140,7 @@ export class TableContentComponent implements OnInit {
     dialog.afterClosed().subscribe(result =>{
       if(result != null){
         this.tempCard = result;
-        this.dbRequester.postCard(this.tempCard.name,this.tableData.lists[indexList].listData.id,this.tempCard.description,"admin").subscribe(cards => {
+        this.dbRequester.postCard(this.tempCard.name,this.tableData.lists[indexList].listData.id,this.tempCard.description, this.userName).subscribe(cards => {
         if(cards.result == "failure"){
           this.router.navigateByUrl("/");
         }else{
@@ -143,7 +155,11 @@ export class TableContentComponent implements OnInit {
     })
   }
 
-  deleteCard(indexCard : number, indexList : number) : void{
+  deleteCard(event: MouseEvent, indexCard: number, indexList: number) : void{
+    event.stopPropagation()
+
+    console.log("card id" + this.tableData.lists[indexList].cards[indexCard].id)
+    console.log("list id" + this.tableData.lists[indexList].cards[indexCard].list_id)
 
     this.dbRequester.deleteCard(this.tableData.lists[indexList].cards[indexCard].id,this.tableData.lists[indexList].cards[indexCard].list_id).subscribe(card => {
       if(card.result == "failure"){
