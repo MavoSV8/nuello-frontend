@@ -1,0 +1,44 @@
+.medium-font-size{
+  font-size: large;
+}
+
+.list{
+  width: 200px;
+  border-radius: 5px;
+  height: 100%;
+  float: left;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 100px;
+}
+.center{
+  alignment: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+
+.list-header{
+  border-radius: 5px;
+  width: 190px;
+  height: 40px;
+  margin-left: 5px;
+  margin-top : 5px;
+  margin-bottom: 5px;
+  background: antiquewhite;
+  font-weight: bold;
+}
+
+.card-box{
+  border-radius: 5px;
+  width: 190px;
+  height: 60px;
+  margin-left: 5px;
+  margin-top : 5px;
+  margin-bottom: 5px;
+  background: white;
+}
+
+.btn-sml { height: 2px; }
+

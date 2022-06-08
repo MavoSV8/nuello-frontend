@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Add user</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <input matInput placeholder="Name" [(ngModel)]="data.name">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <input matInput placeholder="password" [(ngModel)]="data.pwd">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="center">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>OK</button>
+</div>
