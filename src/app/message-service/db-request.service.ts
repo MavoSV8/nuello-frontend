@@ -97,6 +97,10 @@ export class DbRequestService {
     return this.http.patch<OpResult>(this.cardsHttp, {id: id, list_id: list_id, description: description},{withCredentials:true})
   }
 
+  patchCardTitle(id: number, list_id: number, title: string): Observable<OpResult> {
+    return this.http.patch<OpResult>(this.cardsHttp, {id: id, list_id: list_id, name: title},{withCredentials:true})
+  }
+
   patchTask(id: number, cardId: number, content: string, status: string): Observable<OpResult> {
     return this.http.patch<OpResult>(this.tasksHttp, "", {withCredentials: true, params:{id : id, card_id: cardId, content: content, status: status}});
   }

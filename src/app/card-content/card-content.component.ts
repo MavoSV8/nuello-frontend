@@ -177,7 +177,7 @@ export class CardContentComponent implements OnInit {
     this.addingTask = true
   }
 
-  onFocusOut(event: any){
+  editAssignee(event: any){
     let tempAssignee = event.target.value;
     if(tempAssignee !== this.card.assigne){
       this.dbRequester.patchCardAssignee(this.card.id,this.card.list_id,tempAssignee).subscribe(result => {
@@ -186,6 +186,38 @@ export class CardContentComponent implements OnInit {
         }
         else {
           this.card.assigne = tempAssignee;
+        }
+
+      })
+
+    }
+  }
+
+  editDesc(event: any){
+    let tempDesc = event.target.value;
+    if(tempDesc !== this.card.description){
+      this.dbRequester.patchCardDescription(this.card.id,this.card.list_id,tempDesc).subscribe(result => {
+        if(result.result == "failure"){
+          event.target.value = this.card.description;
+        }
+        else {
+          this.card.description = tempDesc;
+        }
+
+      })
+
+    }
+  }
+
+  editCardTitle(event: any){
+    let tempTitle = event.target.value;
+    if(tempTitle !== this.card.name){
+      this.dbRequester.patchCardTitle(this.card.id,this.card.list_id,tempTitle).subscribe(result => {
+        if(result.result == "failure"){
+          event.target.value = this.card.name;
+        }
+        else {
+          this.card.name = tempTitle;
         }
 
       })
