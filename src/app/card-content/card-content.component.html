@@ -1,14 +1,12 @@
 <mat-dialog-content class="mat-typography">
-  <h1 class="card-title" style="background-color: antiquewhite">
-    {{ this.card.name }}
-  </h1>
+    <input class="card-title" style="background-color: antiquewhite" value="{{ this.card.name }}" (focusout)="editCardTitle($event)">
   <hr/>
   <div>
     <h2>
       Description:
     </h2>
     <p>
-    {{ this.card.description }}
+      <input id="desc" value="{{ this.card.description }}" (focusout)="editDesc($event)">
     </p>
   </div>
   <hr/>
@@ -16,9 +14,7 @@
     <h2>
       Assignee:
     </h2>
-    <h3 class="bi bi-person">
-      {{ this.card.assigne}}
-    </h3>
+      <input class="bi bi-person" id="assignee" value="{{this.card.assigne}}" (focusout)="editAssignee($event)">
   </div>
   <hr/>
   <div>

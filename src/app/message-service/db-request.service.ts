@@ -90,8 +90,15 @@ export class DbRequestService {
     return this.http.patch<OpResult>(this.listsHttp, {params: {id: id, table_id: table_id}})
   }
 
-  patchCard(id: number, list_id: number): Observable<OpResult> {
-    return this.http.patch<OpResult>(this.cardsHttp, {params: {id: id, list_id: list_id}})
+  patchCardAssignee(id: number, list_id: number, assigne: string): Observable<OpResult> {
+    return this.http.patch<OpResult>(this.cardsHttp, {id: id, list_id: list_id, assigne: assigne},{withCredentials:true})
+  }
+  patchCardDescription(id: number, list_id: number, description: string): Observable<OpResult> {
+    return this.http.patch<OpResult>(this.cardsHttp, {id: id, list_id: list_id, description: description},{withCredentials:true})
+  }
+
+  patchCardTitle(id: number, list_id: number, title: string): Observable<OpResult> {
+    return this.http.patch<OpResult>(this.cardsHttp, {id: id, list_id: list_id, name: title},{withCredentials:true})
   }
 
   patchTask(id: number, cardId: number, content: string, status: string): Observable<OpResult> {
