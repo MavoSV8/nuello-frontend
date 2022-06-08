@@ -16,9 +16,7 @@
     <h2>
       Assignee:
     </h2>
-    <h3 class="bi bi-person">
-      {{ this.card.assigne}}
-    </h3>
+      <input class="bi bi-person" id="assignee" value="{{this.card.assigne}}" (focusout)="onFocusOut($event)">
   </div>
   <hr/>
   <div>

@@ -5,7 +5,8 @@ import {Task} from "../task";
 import {Comment} from "../comment";
 import {HttpErrorResponse} from "@angular/common/http";
 import {DbRequestService} from "../message-service/db-request.service";
-import {AuthenticationService} from "../authentication-service/authentication.service";
+
+
 
 @Component({
   selector: 'app-card-content',
@@ -30,6 +31,7 @@ export class CardContentComponent implements OnInit {
   changingDesc = false
   changingName = false
   userTaskInput = ""
+
 
   ngOnInit(): void {
     console.log(this.data)
@@ -174,4 +176,21 @@ export class CardContentComponent implements OnInit {
   showTaskAddingField() {
     this.addingTask = true
   }
+
+  onFocusOut(event: any){
+    let tempAssignee = event.target.value;
+    if(tempAssignee !== this.card.assigne){
+      this.dbRequester.patchCardAssignee(this.card.id,this.card.list_id,tempAssignee).subscribe(result => {
+        if(result.result == "failure"){
+          event.target.value = this.card.assigne;
+        }
+        else {
+          this.card.assigne = tempAssignee;
+        }
+
+      })
+
+    }
+  }
+
 }
