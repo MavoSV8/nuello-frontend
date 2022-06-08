@@ -19,6 +19,8 @@ import {AddCardComponent, TableContentComponent} from './table-content/table-con
 import { AddListComponent } from './add-list/add-list.component';
 import {MatInputModule} from "@angular/material/input";
 import { CardContentComponent } from './card-content/card-content.component';
+import { SignupComponent } from './signin-window/signin-window.component';
+import { PopupComponent } from './signin-window/signin-window.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { CardContentComponent } from './card-content/card-content.component';
     TableContentComponent,
     AddListComponent,
     AddCardComponent,
-    CardContentComponent
+    CardContentComponent,
+    SignupComponent,
+    PopupComponent
   ],
     imports: [
         BrowserModule,
